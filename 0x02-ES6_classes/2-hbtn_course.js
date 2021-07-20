@@ -1,9 +1,8 @@
-/* eslint-disable class-methods-use-this */
 class HolbertonCourse {
-  constructor(name, length, students) {
-    this._name = name;
-    this._length = length;
-    this._students = students;
+  constructor(name = '', length = 0, students = []) {
+    this.name = name;
+    this.students = students;
+    this.length = length;
   }
 
   get name() {
@@ -12,7 +11,7 @@ class HolbertonCourse {
 
   set name(value) {
     if (typeof value !== 'string') {
-      throw new TypeError('name must be a string');
+      throw new TypeError('Name must be a string');
     }
     this._name = value;
   }
@@ -23,13 +22,13 @@ class HolbertonCourse {
 
   set length(value) {
     if (typeof value !== 'number') {
-      throw new TypeError('length must be a number');
+      throw TypeError('Lenght must be a number');
     }
     this._length = value;
   }
 
-  get student() {
-    return this.__students;
+  get students() {
+    return this._students;
   }
 
   set students(currStudents) {
@@ -42,8 +41,7 @@ class HolbertonCourse {
     } else {
       throw new TypeError('Student must be in the Array');
     }
-    this.__students = currStudents;
+    this._students = currStudents;
   }
 }
-
 export default HolbertonCourse;
